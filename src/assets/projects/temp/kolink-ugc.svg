@@ -11,13 +11,13 @@
   </defs>
   <rect width="1600" height="1000" fill="url(#k)"/>
   <rect width="1600" height="1000" fill="url(#gold)"/>
-  <rect x="180" y="140" width="360" height="720" rx="56" fill="#111" stroke="rgba(255,255,255,0.2)" stroke-width="8"/>
+  <rect x="180" y="140" width="360" height="720" rx="56" fill="#111" stroke="#ffffff" stroke-opacity="0.2" stroke-width="8"/>
   <rect x="210" y="200" width="300" height="560" rx="28" fill="#1c1c1c"/>
   <circle cx="360" cy="800" r="18" fill="#333"/>
-  <rect x="640" y="220" width="360" height="720" rx="56" fill="#161616" stroke="rgba(245,193,93,0.45)" stroke-width="8"/>
+  <rect x="640" y="220" width="360" height="720" rx="56" fill="#161616" stroke="#f5c15d" stroke-opacity="0.45" stroke-width="8"/>
   <rect x="670" y="280" width="300" height="560" rx="28" fill="#222"/>
   <text x="1080" y="360" fill="#f5c15d" font-family="ui-sans-serif" font-size="20" letter-spacing="6">SHIPPED TO STORES</text>
   <text x="1080" y="440" fill="#fff" font-family="Georgia, serif" font-size="64">KoLink UGC</text>
-  <text x="1080" y="500" fill="rgba(255,255,255,0.7)" font-family="ui-sans-serif" font-size="24">iOS App Store · Google Play</text>
-  <text x="1080" y="560" fill="rgba(255,255,255,0.55)" font-family="ui-sans-serif" font-size="20">React Native · Expo · Campaigns · CPM Payouts</text>
+  <text x="1080" y="500" fill="#ffffff" fill-opacity="0.7" font-family="ui-sans-serif" font-size="24">iOS App Store - Google Play</text>
+  <text x="1080" y="560" fill="#ffffff" fill-opacity="0.55" font-family="ui-sans-serif" font-size="20">React Native - Expo - Campaigns - CPM Payouts</text>
 </svg>
