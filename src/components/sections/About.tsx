@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const paragraph =
-  "Results-driven Full Stack Developer with 3+ years of professional experience designing and delivering scalable web applications using the MERN stack, Angular, and Next.js. Built production-grade B2B PWAs, membership community platforms, and real-time chat applications. Experienced in LLM integration (OpenAI, Groq, Ollama), multi-turn chat memory, Firebase real-time sync, AWS and Microsoft Azure deployments, Docker, CI/CD pipelines, and Role-Based Access Control (RBAC).";
+  "Results-driven Full Stack Developer with 3+ years shipping production web and mobile products. I design scalable MERN, Next.js, and Angular systems, then take the same product thinking to iOS and Android with React Native and Expo — including KoLink UGC, live on the App Store and Google Play. Comfortable across LLM pipelines (OpenAI, Groq, Claude, Copilot), realtime sync, Firebase, Supabase, AWS, Azure, Docker, CI/CD, and RBAC. Daily driver: macOS, Cursor, GitHub Copilot, and Claude for high-velocity delivery.";
 
 export function About() {
   const rootRef = useRef<HTMLElement>(null);
@@ -25,11 +25,11 @@ export function About() {
         opacity: 1,
         y: 0,
         ease: "none",
-        stagger: 0.02,
+        stagger: 0.018,
         scrollTrigger: {
           trigger: ".about-panel",
           start: "top 85%",
-          end: "bottom 60%",
+          end: "bottom 55%",
           scrub: 0.8,
         },
       });
@@ -64,9 +64,9 @@ export function About() {
 
   const stats = [
     { k: "3+", v: "Years Experience" },
-    { k: "20+", v: "Projects Shipped" },
-    { k: "10+", v: "Technologies" },
-    { k: "∞", v: "Cups of Coffee" },
+    { k: "25+", v: "Projects Shipped" },
+    { k: "2", v: "App Stores Live" },
+    { k: "AI+", v: "LLM Product Work" },
   ];
 
   return (
@@ -86,8 +86,8 @@ export function About() {
               </span>
             </div>
             <h2 className="font-display text-4xl font-light leading-tight tracking-tight text-white md:text-6xl">
-              A developer who builds{" "}
-              <span className="italic text-accent">with intent.</span>
+              A builder who ships{" "}
+              <span className="italic text-accent">across screens.</span>
             </h2>
           </div>
         </div>

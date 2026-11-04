@@ -1,24 +1,35 @@
 import {
-  siAngular,
+  siAndroid,
+  siApple,
   siCloudflare,
   siDocker,
-  siExpress,
+  siExpo,
   siFirebase,
+  siFramer,
+  siGithubcopilot,
   siGit,
   siMongodb,
   siNextdotjs,
   siNodedotjs,
   siReact,
+  siSupabase,
+  siTailwindcss,
   siTypescript,
 } from "simple-icons";
 
 const stack = [
   { name: "React", icon: siReact },
+  { name: "React Native", icon: siReact },
+  { name: "Expo", icon: siExpo },
   { name: "Next.js", icon: siNextdotjs },
-  { name: "Angular", icon: siAngular },
-  { name: "Node.js", icon: siNodedotjs },
-  { name: "Express", icon: siExpress },
   { name: "TypeScript", icon: siTypescript },
+  { name: "Node.js", icon: siNodedotjs },
+  { name: "Supabase", icon: siSupabase },
+  { name: "Tailwind", icon: siTailwindcss },
+  { name: "Framer Motion", icon: siFramer },
+  { name: "iOS", icon: siApple },
+  { name: "Android", icon: siAndroid },
+  { name: "Copilot", icon: siGithubcopilot },
   { name: "MongoDB", icon: siMongodb },
   { name: "Firebase", icon: siFirebase },
   { name: "AWS", icon: siCloudflare },
@@ -62,7 +73,7 @@ export function TechMarquee() {
                 )}`}
                 alt={s.name}
                 loading="lazy"
-                className="h-9 w-9 opacity-70 transition-all duration-500 group-hover:opacity-100"
+                className="h-9 w-9 opacity-70 transition-all duration-500 group-hover:opacity-100 group-hover:scale-110"
                 style={{
                   filter:
                     "drop-shadow(0 0 12px oklch(0.78 0.14 78 / 0.35))",

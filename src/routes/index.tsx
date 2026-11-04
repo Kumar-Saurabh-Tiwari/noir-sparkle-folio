@@ -16,6 +16,7 @@ import { Coding } from "@/components/sections/Coding";
 import { Projects } from "@/components/sections/Projects";
 import { TechMarquee } from "@/components/TechMarquee";
 import { Contact } from "@/components/sections/Contact";
+import { CursorGlow } from "@/components/CursorGlow";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -24,13 +25,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Portfolio of Saurabh Kumar Tiwari — Full Stack Developer specializing in MERN, Next.js, Angular, LLM integration, and cloud-scale web applications.",
+          "Portfolio of Saurabh Kumar Tiwari — Full Stack Developer shipping web, iOS, and Android apps with React Native, Expo, Next.js, and AI product work.",
       },
       { property: "og:title", content: "Saurabh Kumar Tiwari — Full Stack Developer" },
       {
         property: "og:description",
         content:
-          "Portfolio of Saurabh Kumar Tiwari — Full Stack Developer specializing in MERN, Next.js, Angular, LLM integration, and cloud-scale web applications.",
+          "Portfolio of Saurabh Kumar Tiwari — Full Stack Developer shipping web, iOS, and Android apps with React Native, Expo, Next.js, and AI product work.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -58,6 +59,7 @@ function Index() {
         onDone={() => setPreloaderDone(true)}
       />
       <SmoothScroll />
+      <CursorGlow />
       <VideoStage
         onReady={() => setVideosReady(true)}
         onProgress={setVideoProgress}

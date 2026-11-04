@@ -17,24 +17,40 @@ const groups: Group[] = [
   {
     label: "Frontend",
     code: "FE",
-    tagline: "Component Architecture & PWAs",
+    tagline: "Interfaces, motion & design systems",
     pills: [
       { name: "React.js", sub: "Component architecture" },
       { name: "Next.js", sub: "SSR / RSC / Edge" },
       { name: "Angular 18+", sub: "Enterprise scale" },
       { name: "TypeScript", sub: "Type-safe systems" },
-      { name: "PWA", sub: "Service workers" },
-      { name: "Tailwind / CSS3", sub: "Design systems" },
+      { name: "Tailwind CSS", sub: "Utility design systems" },
+      { name: "Framer Motion", sub: "Product-grade motion" },
+      { name: "GSAP", sub: "Scroll & cinematic UI" },
+      { name: "PWA", sub: "Offline-first apps" },
+    ],
+  },
+  {
+    label: "Mobile",
+    code: "MO",
+    tagline: "iOS, Android & store-ready apps",
+    pills: [
+      { name: "React Native", sub: "Cross-platform native UI" },
+      { name: "Expo", sub: "EAS builds & OTA updates" },
+      { name: "iOS", sub: "App Store shipping" },
+      { name: "Android", sub: "Play Console shipping" },
+      { name: "macOS", sub: "Xcode, Simulator, daily OS" },
+      { name: "Store Ops", sub: "Listings, ratings, releases" },
     ],
   },
   {
     label: "Backend",
     code: "BE",
-    tagline: "Real-time sync & REST APIs",
+    tagline: "Realtime sync, APIs & auth",
     pills: [
       { name: "Node.js", sub: "Event-driven runtime" },
       { name: "Express.js", sub: "REST API layer" },
-      { name: "WebSockets", sub: "Realtime channels" },
+      { name: "Supabase", sub: "Realtime + Postgres" },
+      { name: "WebSockets", sub: "Live channels" },
       { name: "Firebase RTDB", sub: "Live sync" },
       { name: "REST Design", sub: "OpenAPI / versioning" },
     ],
@@ -45,49 +61,50 @@ const groups: Group[] = [
     tagline: "Relational, document & realtime stores",
     pills: [
       { name: "MongoDB", sub: "Document store" },
-      { name: "MySQL", sub: "OLTP workloads" },
       { name: "PostgreSQL", sub: "Relational + JSONB" },
+      { name: "MySQL", sub: "OLTP workloads" },
       { name: "Firestore", sub: "Realtime NoSQL" },
     ],
   },
   {
     label: "AI / LLM",
     code: "AI",
-    tagline: "LLM pipelines, RAG & agents",
+    tagline: "Product pipelines, RAG & speech",
     pills: [
-      { name: "OpenAI API", sub: "GPT integrations", glow: true },
-      { name: "Groq", sub: "Ultra-low latency", glow: true },
+      { name: "OpenAI API", sub: "GPT product flows", glow: true },
+      { name: "Groq", sub: "Low-latency inference", glow: true },
+      { name: "Claude", sub: "Long-context reasoning", glow: true },
+      { name: "Whisper / STT", sub: "Live captions & ASR", glow: true },
+      { name: "RAG Pipelines", sub: "Retrieval + grounding", glow: true },
       { name: "Ollama", sub: "Local LLM runtime", glow: true },
-      { name: "RAG Pipelines", sub: "Vector retrieval", glow: true },
-      { name: "OCR Extraction", sub: "Doc intelligence", glow: true },
     ],
   },
   {
     label: "AI Tools",
     code: "AIT",
-    tagline: "Generative AI copilots & IDE assistants",
+    tagline: "How I ship faster with copilots",
     pills: [
-      { name: "Claude", sub: "Anthropic reasoning", glow: true },
-      { name: "ChatGPT", sub: "OpenAI GPT models", glow: true },
+      { name: "Cursor", sub: "Agentic IDE, multi-file edits", glow: true },
+      { name: "GitHub Copilot", sub: "Inline completions & PRs", glow: true },
+      { name: "Claude", sub: "Architecture & code review", glow: true },
+      { name: "ChatGPT", sub: "Rapid prototyping", glow: true },
+      { name: "Gemini", sub: "Multimodal research", glow: true },
       { name: "Lovable", sub: "AI full-stack builder", glow: true },
-      { name: "Gemini", sub: "Google multimodal", glow: true },
-      { name: "Cursor", sub: "AI-native IDE", glow: true },
-      { name: "GitHub Copilot", sub: "Inline code AI", glow: true },
       { name: "v0", sub: "UI generation", glow: true },
-      { name: "Midjourney", sub: "Visual generation", glow: true },
-      { name: "Perplexity", sub: "AI research", glow: true },
+      { name: "Perplexity", sub: "Technical research", glow: true },
     ],
   },
   {
-    label: "DevOps / Cloud",
+    label: "Cloud / OS",
     code: "OPS",
-    tagline: "Ship, scale & observe",
+    tagline: "Ship, observe, and work natively",
     pills: [
       { name: "AWS (EC2)", sub: "Compute & networking" },
       { name: "Azure", sub: "Enterprise cloud" },
       { name: "Docker", sub: "Containerization" },
       { name: "GitHub Actions", sub: "CI/CD pipelines" },
       { name: "Vercel", sub: "Edge delivery" },
+      { name: "macOS", sub: "Primary engineering setup" },
     ],
   },
 ];
@@ -99,7 +116,6 @@ export function Skills() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Header reveal
       gsap.fromTo(
         ".skills-header",
         { opacity: 0, y: 30 },
@@ -116,7 +132,6 @@ export function Skills() {
       const panels = panelRefs.current.filter(Boolean) as HTMLDivElement[];
       if (!cards.length) return;
 
-      // Pre-measure open heights to prevent layout shift jumps.
       const openHeights = panels.map((p) => {
         p.style.gridTemplateRows = "1fr";
         const h = p.getBoundingClientRect().height;
@@ -124,7 +139,6 @@ export function Skills() {
         return h;
       });
 
-      // Initial state — all closed, all neutral.
       cards.forEach((c, i) => {
         gsap.set(c, { scale: 0.98, opacity: 0.5 });
         gsap.set(panels[i], { gridTemplateRows: "0fr" });
@@ -158,10 +172,10 @@ export function Skills() {
       ScrollTrigger.create({
         trigger: pin,
         start: "top top",
-        end: () => `+=${window.innerHeight * total * 0.9}`,
+        end: () => `+=${window.innerHeight * total * 0.85}`,
         pin: true,
         pinSpacing: true,
-        scrub: 0.6,
+        scrub: 0.7,
         anticipatePin: 1,
         onUpdate: (self) => {
           const idx = Math.min(
@@ -173,7 +187,6 @@ export function Skills() {
       });
 
       return () => {
-        // openHeights kept in scope; nothing else to clean.
         void openHeights;
       };
     }, rootRef);
@@ -200,9 +213,9 @@ export function Skills() {
               THE <span className="text-accent">TOOLKIT</span>
             </h2>
           </div>
-          <p className="max-w-xs font-mono text-xs leading-relaxed text-white/60">
-            // Scroll to sequence through the stack — real-time systems, LLM
-            interfaces, cloud-scale delivery.
+          <p className="max-w-sm font-mono text-xs leading-relaxed text-white/60">
+            // Scroll to sequence the stack — native apps, realtime systems,
+            LLM product work, and cloud-scale delivery.
           </p>
         </div>
 

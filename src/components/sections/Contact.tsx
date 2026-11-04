@@ -174,7 +174,7 @@ export function Contact() {
               Available for
             </p>
             <p className="mt-3 font-display text-2xl font-light leading-snug md:text-3xl">
-              Freelance projects, full-time roles, and thoughtful collaborations.
+              Full-time roles, freelance, and product teams who need web + iOS/Android shipped with AI in the loop.
             </p>
 
             <div className="mt-10 space-y-4">

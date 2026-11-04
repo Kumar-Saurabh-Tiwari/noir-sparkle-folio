@@ -5,8 +5,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const PHRASES = [
+  "Shipping iOS & Android Apps",
+  "Integrating AI Into Products",
   "Architecting Scalable Systems",
-  "Integrating AI Solutions",
   "Crafting Premium Web Experiences",
 ];
 
@@ -16,20 +17,20 @@ export function Hero() {
   const [typed, setTyped] = useState("");
   const [deleting, setDeleting] = useState(false);
 
-  // Entrance animation
   useEffect(() => {
     const ctx = gsap.context(() => {
       const letters = gsap.utils.toArray<HTMLElement>(".hero-letter");
-      gsap.set(letters, { y: 50, opacity: 0 });
-      gsap.set(".hero-meta", { opacity: 0, y: 16 });
+      gsap.set(letters, { y: 70, opacity: 0, rotateX: 40 });
+      gsap.set(".hero-meta", { opacity: 0, y: 22 });
 
-      const tl = gsap.timeline({ delay: 0.15 });
+      const tl = gsap.timeline({ delay: 0.12 });
       tl.to(letters, {
         y: 0,
         opacity: 1,
-        duration: 1,
+        rotateX: 0,
+        duration: 1.1,
         ease: "power4.out",
-        stagger: 0.05,
+        stagger: 0.035,
       }).to(
         ".hero-meta",
         {
@@ -37,31 +38,30 @@ export function Hero() {
           y: 0,
           duration: 0.9,
           ease: "power3.out",
-          stagger: 0.1,
+          stagger: 0.08,
         },
-        "-=0.6",
+        "-=0.65",
       );
 
       gsap.to(".hero-content", {
-        yPercent: -20,
+        yPercent: -18,
         opacity: 0,
         ease: "none",
         scrollTrigger: {
           trigger: rootRef.current,
           start: "top top",
           end: "bottom top",
-          scrub: 0.5,
+          scrub: 0.6,
         },
       });
     }, rootRef);
     return () => ctx.revert();
   }, []);
 
-  // Typewriter loop
   useEffect(() => {
     const full = PHRASES[phraseIdx];
     if (!deleting && typed === full) {
-      const t = setTimeout(() => setDeleting(true), 1600);
+      const t = setTimeout(() => setDeleting(true), 1700);
       return () => clearTimeout(t);
     }
     if (deleting && typed === "") {
@@ -75,7 +75,7 @@ export function Hero() {
           deleting ? full.slice(0, prev.length - 1) : full.slice(0, prev.length + 1),
         );
       },
-      deleting ? 35 : 60,
+      deleting ? 28 : 52,
     );
     return () => clearTimeout(t);
   }, [typed, deleting, phraseIdx]);
@@ -89,21 +89,23 @@ export function Hero() {
       id="top"
       className="relative flex h-screen items-center justify-center overflow-hidden"
     >
-      {/* Gradient blend into next section */}
       <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-b from-black/40 via-transparent to-black/80" />
+      <div className="hero-aurora pointer-events-none absolute inset-0 z-[1] opacity-70" />
 
-      <div className="hero-content relative z-10 mx-auto w-full max-w-6xl px-4 text-center sm:px-6" style={{ maxWidth: "min(72rem, 100vw)" }}>
-        {/* Glassmorphism pill */}
+      <div
+        className="hero-content relative z-10 mx-auto w-full max-w-6xl px-4 text-center sm:px-6"
+        style={{ maxWidth: "min(72rem, 100vw)" }}
+      >
         <div className="mb-8 flex justify-center hero-meta">
           <div className="relative overflow-hidden rounded-full border border-white/10 bg-white/5 px-6 py-2 backdrop-blur-md">
             <span className="track-wide relative z-10 text-[10px] uppercase text-white/80 md:text-xs">
-              Full Stack Developer · MERN • Next • AI
+              Full Stack · React Native · Expo · AI
             </span>
             <span className="pointer-events-none absolute inset-y-0 -left-1/2 w-1/2 animate-[shimmer_3s_linear_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
           </div>
         </div>
 
-        <h1 className="font-syncopate font-normal leading-[1.05] text-white">
+        <h1 className="font-syncopate font-normal leading-[1.05] text-white [perspective:800px]">
           <span className="block overflow-hidden text-[clamp(1.75rem,8vw,6rem)]">
             <span className="inline-block whitespace-nowrap">
               {first.split("").map((ch, i) => (
@@ -130,16 +132,30 @@ export function Hero() {
           </span>
         </h1>
 
-        {/* Typewriter subtitle */}
         <div className="mt-8 flex min-h-[1.8em] items-center justify-center hero-meta">
           <h2 className="track-wide text-sm font-normal uppercase text-white/75 md:text-base">
             <span>{typed}</span>
             <span className="ml-1 inline-block h-[1em] w-[2px] translate-y-[2px] animate-pulse bg-accent align-middle" />
           </h2>
         </div>
+
+        <div className="hero-meta mt-10 flex flex-wrap items-center justify-center gap-4">
+          <a
+            href="#projects"
+            className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full border border-accent/40 bg-accent/10 px-6 py-3 text-[10px] uppercase tracking-[0.28em] text-accent transition-all duration-500 hover:border-accent hover:bg-accent hover:text-black"
+          >
+            View selected work
+            <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+          </a>
+          <a
+            href="#apps"
+            className="inline-flex items-center gap-3 rounded-full border border-white/15 px-6 py-3 text-[10px] uppercase tracking-[0.28em] text-white/80 transition-all duration-500 hover:border-white/40 hover:text-white"
+          >
+            iOS & Android apps
+          </a>
+        </div>
       </div>
 
-      {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 hero-meta">
         <div className="flex flex-col items-center gap-3">
           <span className="track-wide text-[10px] uppercase text-white/60">
