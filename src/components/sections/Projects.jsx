@@ -21,8 +21,8 @@ import imgNike from "@/assets/projects/temp/nike-web.png";
 import imgNifty from "@/assets/projects/temp/nifty-pulse.png";
 import imgCrosstalk from "@/assets/projects/temp/crosstalk.png";
 import imgTranspulse from "@/assets/projects/temp/transpulse.png";
-import imgGlasshouse from "@/assets/projects/temp/glasshouse-cinema.svg";
-import imgKolink from "@/assets/projects/temp/kolink-ugc.svg";
+import imgGlasshouse from "@/assets/projects/temp/glasshouse-cinema.png";
+import imgKolink from "@/assets/projects/temp/kolink-ugc.png";
 
 gsap.registerPlugin(ScrollTrigger, Flip);
 
